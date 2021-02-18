@@ -20,69 +20,69 @@ public:
     void clear();
     void insert(T data, size_t index);
     void remove(size_t index);
-    bool isEmpty() const;
-    size_t getSize() const;
+    bool is_empty() const;
+    size_t size() const;
     void show() const;
     size_t find(const T& rhs) const;
 
-    Iterator begin() {return Iterator(head);}
+    Iterator begin() {return Iterator(_head);}
     Iterator end() {return Iterator(nullptr);}
 
 private:
     struct Node;
 
-    size_t Size;
-    Node *head;
-    Node *tail;
+    size_t _size;
+    Node *_head;
+    Node *_tail;
 
     struct Node {
-        T data;
-        Node *next;
-        Node *prev;
+        T __data;
+        Node *__next;
+        Node *__prev;
 
         explicit Node(T data = T(), Node *pPrev = nullptr, Node *pNext = nullptr) {
-            this->data = data;
-            this->next = pNext;
-            this->prev = pPrev;
+            __data = data;
+            this->__next = pNext;
+            this->__prev = pPrev;
         }
     };
 
 public:
     class Iterator {
     private:
-        Node* current;
+        Node* __current;
     public:
-        Iterator(Node* first) : current(first) { }
+        Iterator(Node* first) : __current(first) { }
 
         Iterator operator+(int n) {
-            for (int i = 0; i < n && current != nullptr; ++i) {
-                current = current->next;
+            for (int i = 0; i < n && __current != nullptr; ++i) {
+                __current = __current->__next;
             }
-            return current;
+            return __current;
         }
 
         Iterator operator-(int n) {
-            for (int i = 0; i < n && current != nullptr; ++i) {
-                current = current->prev;
+            for (int i = 0; i < n && __current != nullptr; ++i) {
+                __current = __current->__prev;
             }
-            return current;
+            return __current;
         }
 
         Iterator operator++() {
-            current = current->next;
-            return current;
+            __current = __current->__next;
+            return __current;
         }
 
         Iterator operator--() {
-            current = current->prev;
-            return current;
+            __current = __current->__prev;
+            return __current;
         }
 
-        T& operator*() const { return current->data; }
+        T& operator*() const { return __current->__data; }
 
-        bool operator==(const Iterator &rhs) const { return current == rhs.current; }
+        bool operator==(const Iterator &rhs) const { return __current == rhs.__current; }
 
-        bool operator!=(const Iterator &rhs) const { return current != rhs.current; }
+        bool operator!=(const Iterator &rhs) const { return __current != rhs.__current; }
     };
 };
 

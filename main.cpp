@@ -1,4 +1,5 @@
 #include "List.hpp"
+#include "Device.hpp"
 
 
 int main() {
@@ -9,6 +10,7 @@ int main() {
     for (auto it = lst.begin(); it != lst.end(); ++it) {
         std::cout << *it << ' ';
     }
-
+    Device dev;
+    std::cout << std::endl << dev;
     return 0;
 }
