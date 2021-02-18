@@ -1,5 +1,5 @@
-#ifndef PROTOTYPE_OF_HOMEWORK3_LIST_HPP
-#define PROTOTYPE_OF_HOMEWORK3_LIST_HPP
+#ifndef LIST_HPP
+#define LIST_HPP
 #include <iostream>
 
 template<typename T>
@@ -89,4 +89,4 @@ public:
 
 #include "List.inl"
 
-#endif //PROTOTYPE_OF_HOMEWORK3_LIST_HPP
+#endif //LIST_HPP

@@ -4,7 +4,7 @@
 
 
 class Device {
-private:
+protected:
     struct Size {
         double  __width,
                 __length,
@@ -12,9 +12,11 @@ private:
     };
 public:
     Device();
-    Device(const std::string& modelName,
-           const int& portCount,
-           const Size& modelSize);
+
+    Device(const std::string&   modelName,
+           const int&           portCount,
+           const Size&          modelSize);
+
     Device(const Device& rhs);
 
     Device& operator=(const Device& rhs);

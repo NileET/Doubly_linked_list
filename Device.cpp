@@ -6,22 +6,22 @@ Device::Device() : _modelName("Unknown"),
                    _modelSize{0, 0, 0}
 { }
 
-Device::Device(const std::string& modelName,
-               const int& portCount,
-               const Device::Size& modelSize) :
-        _modelName(modelName)
-        , _portCount(portCount)
-        , _modelSize(modelSize)
+Device::Device(const std::string&   modelName,
+               const int&           portCount,
+               const Device::Size&  modelSize) :
+      _modelName(modelName)
+    , _portCount(portCount)
+    , _modelSize(modelSize)
 { }
 
 Device::Device(const Device& rhs) :
-        _modelName(rhs._modelName)
-        , _portCount(rhs._portCount)
-        , _modelSize(rhs._modelSize)
+      _modelName(rhs._modelName)
+    , _portCount(rhs._portCount)
+    , _modelSize(rhs._modelSize)
 { }
 
 Device &Device::operator=(const Device& rhs) {
-    if(this == &rhs) return *this;
+    if (this == &rhs) return *this;
 
     _modelName = rhs._modelName;
     _portCount = rhs._portCount;
@@ -33,11 +33,11 @@ Device::~Device()
 { }
 
 std::ostream& operator<<(std::ostream& stream, const Device& item) {
-    stream << " Device's model: " <<         item._modelName          << '\n'
-           << " Number of ports: " <<        item._portCount          << '\n'
-           << " Dimensions:\n\t width - " << item._modelSize.__width  << " mm"
-           << "\n\t length - " <<            item._modelSize.__length << " mm"
-           << "\n\t high - " <<              item._modelSize.__high   << " mm" << std::endl;
+    stream << " Device's model: "          << item._modelName          << '\n'
+           << " Number of ports: "         << item._portCount          << '\n'
+           << " Dimensions:\n\t width  - " << item._modelSize.__width  << " mm"
+           <<             "\n\t length - " << item._modelSize.__length << " mm"
+           <<             "\n\t high   - " << item._modelSize.__high   << " mm" << std::endl;
     return stream;
 }
 
