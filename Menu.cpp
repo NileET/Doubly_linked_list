@@ -43,7 +43,7 @@ void Menu::readFile() {
     for (size_t i = 0; i < countLines; ++i) {
         std::string modelName; std::getline(fin, modelName, ';');
 
-        int speed1, speed2; fin >> speed1 >> speed2;
+        std::pair<int, int> baseSpeed; fin >> baseSpeed.first >> baseSpeed.second;
         fin.ignore(1);
 
         int portCount; fin >> portCount;
@@ -51,6 +51,8 @@ void Menu::readFile() {
 
         double width, length, high; fin >> width >> length >> high;
         fin.ignore(1);
+
+        _switches.push_back(Switch(modelName, baseSpeed, portCount,{width, length, high}));
     }
     std::cout << " File has been read." << std::endl;
     fin.close();
