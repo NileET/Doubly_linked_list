@@ -21,7 +21,7 @@ public:
 
     Device& operator=(const Device& rhs);
 
-    ~Device();
+    virtual ~Device();
 
     friend std::ostream& operator<<(std::ostream& stream, const Device& item);
 

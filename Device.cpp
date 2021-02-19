@@ -1,9 +1,9 @@
 #include "Device.hpp"
 #include <iostream>
 
-Device::Device() : _modelName("Unknown"),
-                   _portCount(0),
-                   _modelSize{0, 0, 0}
+Device::Device() : Device("Unknown",
+                          0,
+                          {0, 0, 0})
 { }
 
 Device::Device(const std::string   modelName,

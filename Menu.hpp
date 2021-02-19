@@ -10,7 +10,7 @@ public:
 private:
     void readFile();
     void writeFile();
-    void showData();
+    void showDataAsFile();
     void aboutStudent();
 
     List<Switch> _switches;
