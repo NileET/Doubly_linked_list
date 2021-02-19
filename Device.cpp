@@ -6,9 +6,9 @@ Device::Device() : _modelName("Unknown"),
                    _modelSize{0, 0, 0}
 { }
 
-Device::Device(const std::string&   modelName,
-               const int&           portCount,
-               const Device::Size&  modelSize) :
+Device::Device(const std::string   modelName,
+               const int           portCount,
+               const Device::Size  modelSize) :
       _modelName(modelName)
     , _portCount(portCount)
     , _modelSize(modelSize)

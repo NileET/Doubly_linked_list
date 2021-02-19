@@ -13,9 +13,9 @@ protected:
 public:
     Device();
 
-    Device(const std::string&   modelName,
-           const int&           portCount,
-           const Size&          modelSize);
+    Device(const std::string   modelName,
+           const int           portCount,
+           const Size          modelSize);
 
     Device(const Device& rhs);
 

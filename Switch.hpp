@@ -11,6 +11,7 @@ public:
            const std::pair<int, int> baseSpeed,
            const int                 portCount,
            const Size                modelSize);
+
     Switch(const Switch& rhs);
 
     Switch& operator=(const Switch& rhs);

@@ -42,8 +42,8 @@ private:
 
         explicit Node(T data = T(), Node *pPrev = nullptr, Node *pNext = nullptr) {
             __data = data;
-            this->__next = pNext;
-            this->__prev = pPrev;
+            __next = pNext;
+            __prev = pPrev;
         }
     };
 
