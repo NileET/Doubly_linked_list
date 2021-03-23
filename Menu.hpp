@@ -10,6 +10,8 @@ public:
 private:
     void readFile();
     void writeFile();
+    void addEntry();
+    void removeEntry();
     void showDataAsFile();
     void aboutStudent();
 

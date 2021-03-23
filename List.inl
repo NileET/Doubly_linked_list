@@ -90,7 +90,7 @@ void List<T>::clear() {
 
 template<typename T>
 void List<T>::insert(T data, size_t index) {
-    if (index < 0 || index > _size - 1) {
+    if (index < 0 || index > _size) {
         throw std::out_of_range("Index doesn't exist!");
     }
 
