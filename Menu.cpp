@@ -3,6 +3,7 @@
 #include <sstream>
 #include <chrono>
 #include <thread>
+#include <limits>
 
 int Menu::menuList() {
     while (true) {
@@ -28,10 +29,10 @@ int Menu::menuList() {
                 writeFile(); break;
             // Add entry to the list
             case 3:
-                addEntry(); break;
+                addEntry(); continue;
             // Remove entry from the list
             case 4:
-                removeEntry(); break;
+                removeEntry(); continue;
             // Display the list
             case 5:
                 showDataAsFile(); break;
@@ -42,6 +43,8 @@ int Menu::menuList() {
                 return 0;
             default:
                 std::cerr << "\n\tERROR\n Try again..." << std::endl;
+                std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+                continue;
         }
         std::system("pause");
     }
@@ -91,7 +94,7 @@ void Menu::writeFile() {
 
     std::cout << " Enter the file name to write it: ";
     std::string fileName; std::cin >> fileName;
-    
+
     std::ofstream fout(fileName);
     std::cout << "\n Data file: " << fileName << '.' << std::endl;
     if (!fout.is_open()) {
@@ -149,6 +152,8 @@ void Menu::addEntry() {
             break;
         } else {
             std::cerr << "\n\tERROR\n Try again..." << std::endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(2000) );
+            std::system("cls");
         }
     }
 
@@ -165,11 +170,13 @@ void Menu::addEntry() {
     try {
         std::cout << "\tModel: ";
         std::string modelName;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::getline(std::cin, modelName);
 
-        std::cout << "\tBase baud rate (Mbps): ";
+        std::cout << "\tBase baud rate (Mbps):" << std::endl;
         std::pair<int, int> baseSpeed;
-        std::cin >> baseSpeed.first >> baseSpeed.second;
+        std::cout << "\t\tfirst - "; std::cin >> baseSpeed.first;
+        std::cout << "\t\tsecond - "; std::cin >> baseSpeed.second;
 
         std::cout << "\tNumber of ports: ";
         int portCount; std::cin >> portCount;
@@ -205,9 +212,12 @@ void Menu::addEntry() {
                         break;
                     }
                     std::cerr << "\n\tERROR\n Try again..." << std::endl;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
                 }
                 break;
         }
+        std::cout << " Entry is added! =) ..." << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
     }
     catch (const std::exception& ex) {
         std::cerr << ex.what() << std::endl;
@@ -249,6 +259,7 @@ void Menu::removeEntry() {
                         break;
                     }
                     std::cerr << "\n\tERROR\n Try again..." << std::endl;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
                 }
                 break;
             case 4:
@@ -257,10 +268,12 @@ void Menu::removeEntry() {
                 return;
             default:
                 std::cerr << "\n\tERROR\n Try again..." << std::endl;
-                std::system("pause");
+                std::this_thread::sleep_for(std::chrono::milliseconds(2000));
                 std::system("cls");
                 continue;
         }
+        std::cout << " Entry is removed! =) ..." << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(2000));
         break;
     }
 }
