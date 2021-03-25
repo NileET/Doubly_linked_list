@@ -113,7 +113,7 @@ void List<T>::insert(T data, size_t index) {
         else {
             Node *next = _tail;
 
-            for (size_t i = _size - 1; i > index + 1; --i) {
+            for (size_t i = _size - 1; i > index; --i) {
                 next = next->__prev;
             }
 
@@ -121,8 +121,8 @@ void List<T>::insert(T data, size_t index) {
             next->__prev->__next = newNode;
             next->__prev = newNode;
         }
+        ++_size;
     }
-    ++_size;
 }
 
 template<typename T>
@@ -161,8 +161,8 @@ void List<T>::remove(size_t index) {
 
             delete toDelete;
         }
+        --_size;
     }
-    --_size;
 }
 
 template<typename T>

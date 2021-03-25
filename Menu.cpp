@@ -254,7 +254,7 @@ void Menu::removeEntry() {
                     size_t index;
                     std::cin >> index;
                     --index;
-                    if (index >= 0 && index <= _switches.size()) {
+                    if (index >= 0 && index < _switches.size()) {
                         _switches.remove(index);
                         break;
                     }
