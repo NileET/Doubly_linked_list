@@ -25,8 +25,8 @@ public:
     void show() const;
     size_t find(const T& rhs) const;
 
-    Iterator begin() {return Iterator(_head);}
-    Iterator end() {return Iterator(nullptr);}
+    Iterator begin() const {return Iterator(_head);}
+    Iterator end() const {return Iterator(nullptr);}
 
 private:
     struct Node;

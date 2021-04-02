@@ -9,11 +9,11 @@ public:
     int menuList();
 private:
     void readFile();
-    void writeFile();
+    void writeFile() const;
     void addEntry();
     void removeEntry();
-    void showDataAsFile();
-    void aboutStudent();
+    void showDataAsFile() const;
+    void aboutStudent() const;
 
     List<Switch> _switches;
 };

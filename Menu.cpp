@@ -85,7 +85,7 @@ void Menu::readFile() {
     fin.close();
 }
 
-void Menu::writeFile() {
+void Menu::writeFile() const {
     if (_switches.is_empty()) {
         std::cerr << "Error of saving data to file" << std::endl
         << "Probably, product.txt is empty or not opened..." << std::endl;
@@ -115,7 +115,7 @@ void Menu::writeFile() {
     fout.close();
 }
 
-void Menu::showDataAsFile() {
+void Menu::showDataAsFile() const {
     size_t id = 1;
     for (auto it = _switches.begin(); it != _switches.end(); ++it) {
         std::cout << id << ") "
@@ -130,7 +130,7 @@ void Menu::showDataAsFile() {
     }
 }
 
-void Menu::aboutStudent() {
+void Menu::aboutStudent() const {
     std::cout << " Completed by Daniil Andreevich Zholudev\n"
               << " IEUIS-2-5\n"
               << " Variant 7" << std::endl;
